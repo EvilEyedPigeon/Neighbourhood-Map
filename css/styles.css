@@ -16,3 +16,7 @@
     text-align: left;
     width: 340px;
 }
+
+.container {
+    margin-left: 0;
+}

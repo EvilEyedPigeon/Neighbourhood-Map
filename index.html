@@ -18,27 +18,32 @@
   </head>
   <body>
     <div class="container">
+      <!-- side bar  -->
       <div class="options-box">
-        <h1>My Neighbourhood Map</h1>
+        <h3>Old Town</h3>
+        <ul data-bind="foreach: placeList">
+          <li data-bind="text: name, click: showPlaceInfo.bind($parent)"></li>
+        </ul>
+
       </div>
       <div id="map"></div>
-
-
     </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/model.js"></script>
     <script type='text/javascript' src='js/knockout-3.4.2.js'></script>
-    <script>
+    <script src="js/app.js"></script>
+    <!-- <script>
       function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 8,
           center: {lat: -34.397, lng: 150.644}
         });
       }
-    </script>
+    </script> -->
     <script async defer
      src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyD4yFsqUOBoXePRT-EIlKzXLm-zagMKlpg&callback=initMap">
     </script>
