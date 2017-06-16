@@ -4,48 +4,70 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>Neighbourhood Map</title>
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="css/styles.css">
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
   </head>
   <body>
-    <div class="container">
-      <!-- side bar  -->
-      <div class="options-box">
-        <h3>Old Town</h3>
-        <ul data-bind="foreach: placeList">
-          <li data-bind="text: name, click: showPlaceInfo.bind($parent)"></li>
-        </ul>
-
+    <!-- Navbar -->
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="index.html">Old Town Map</a>
+        </div>
       </div>
-      <div id="map"></div>
+    </nav>
+    <!-- navbar end -->
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+        <div class="row">
+          <div class="col-xs-12">
+          <!-- search bar -->
+            <form>
+              <div class="form-group">
+                <input type="text" class="form-control" id="searchInputBox" placeholder="Enter your nearby search..."
+                  data-bind="textInput: searchQuery">
+              </div>
+            </form>
+            <br>
+            <!-- list of places -->
+            <ul data-bind="foreach: searchResult">
+              <li><a href="#" data-bind="text: name, click: viewPlaceOnMap"></a></li>
+            </ul>
+          </div>
+        </div>
+        <!-- selected place -->
+        <div class="row">
+          <div class="col-xs-12">
+            <h3 data-bind="text: place_name"></h3>
+            <p data-bind="text: place_info"></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12">
+            <h2 data-bind="text: error_message"></h2>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-9 col-lg-9">
+        <div id="map" style="height:600px; width:100%;">
+        </div>
+      </div>
     </div>
+  </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/model.js"></script>
     <script type='text/javascript' src='js/knockout-3.4.2.js'></script>
     <script src="js/app.js"></script>
-    <!-- <script>
-      function initMap() {
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 8,
-          center: {lat: -34.397, lng: 150.644}
-        });
-      }
-    </script> -->
     <script async defer
-     src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyD4yFsqUOBoXePRT-EIlKzXLm-zagMKlpg&callback=initMap">
+     src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyD4yFsqUOBoXePRT-EIlKzXLm-zagMKlpg&callback=initMap" onerror="googleMapLoadError()">
     </script>
 
   </body>
