@@ -5,3 +5,6 @@ Neighbourhood Map is a single page web application based on MVVM (Model-View-Vie
 ## Run this project locally on your computer
 1. Download or clone the repo [https://github.com/megfh/Neighbourhood-Map.git](https://github.com/megfh/Neighbourhood-Map.git)
 2. Open the `index.html` file
+
+## Credits
+This project is connected to Udacity's Intro to AJAX, JavaScript Design Patterns and Google Maps API courses, drawing from, modifying, and building off of the code presented in the courses.
