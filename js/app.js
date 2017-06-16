@@ -25,14 +25,14 @@ function addMarker(place){
     var coordinates = {
         lat: place.location.lat,
         lng: place.location.lng
-    }
+    };
 
     self.marker = new google.maps.Marker({
         map: map,
         position: coordinates,
         animation: google.maps.Animation.DROP,
         clickable: true
-    })
+    });
 
     if (self.marker){
         self.markerArray().push([coordinates, self.marker]);
@@ -91,7 +91,7 @@ function displayMarkersPlace(place){
 // this function uses the wikipedia api to get summary information about the given place, and then displays said information in the sidebar
 function showWikiInfo(place){
     var pageID = place.pageID;
-    var urlString = "https://en.wikipedia.org/w/api.php?action=query&format=json&origin=*&prop=extracts&pageids="+pageID+"&exintro=1&explaintext=1"
+    var urlString = "https://en.wikipedia.org/w/api.php?action=query&format=json&origin=*&prop=extracts&pageids="+pageID+"&exintro=1&explaintext=1";
     var info;
 
     $.ajax({
