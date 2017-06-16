@@ -1,12 +1,12 @@
 // List of places to visit in Old Town
 var placesData = [
     {
-        name:"St Lawrence Market",
-        location:{
+        "name":"St. Lawrence Market",
+        "location":{
             "lat": 43.64905,
             "lng": -79.37177
         },
-        info:"some text here"
+        "pageID": 27929662
     },
 
     {
@@ -15,34 +15,34 @@ var placesData = [
             "lat": 43.64833,
             "lng": -79.37438
         },
-        info:"some text here"
+        "pageID": 704820
     },
 
     {
-        "name":"St James Cathedral Centre",
+        "name":"Cathedral Church of St. James",
         "location":{
             "lat": 43.6505,
             "lng": -79.37408
         },
-        info:"some text here"
+        "pageID": 1135636
     },
 
     {
-        "name":"Brick Street Bakery",
+        "name":"Old City Hall",
         "location":{
-            "lat": 43.64851,
-            "lng": -79.38269
+            "lat": 43.65248,
+            "lng": -79.38201
         },
-        info:"some text here"
+        "pageID": 1134201
     },
 
     {
-        "name":"Irish Embassy Pub and Grill",
+        "name":"Massey Hall",
         "location":{
-            "lat": 43.64798,
-            "lng": -79.37724
+            "lat": 43.65389,
+            "lng": -79.37895
         },
-        info:"some text here"
+        "pageID": 1137284
     }
 
 ];
