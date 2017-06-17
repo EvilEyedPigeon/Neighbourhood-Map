@@ -102,8 +102,8 @@ function showWikiInfo(place){
             // get the info from the json object
             info = data.query.pages[pageID].extract;
             // need to assign to knockout observable
-            self.place_name(place.name);
-            self.place_info(info);
+            self.placeName(place.name);
+            self.placeInfo(info);
 
         },
         error: function(data){
@@ -120,11 +120,11 @@ var AppViewModel = function(){
     this.markerArray = ko.observableArray([]);
     this.searchQuery = ko.observable();
 
-    this.place_name = ko.observable();
-    this.place_info = ko.observable();
+    this.placeName = ko.observable();
+    this.placeInfo = ko.observable();
 
     this.apiError = ko.observable(false);
-    this.error_message = ko.observable();
+    this.errorMessage = ko.observable();
 
     // filters locations displayed in the list based on the given search query
     this.searchResult = ko.computed(function(){
@@ -160,13 +160,13 @@ var AppViewModel = function(){
 
 // This function is called when there is an error loading the Google Maps API
 function googleMapLoadError(){
-  self.error_message("Error: Unable to load Google Maps");
+  self.errorMessage("Error: Unable to load Google Maps");
   self.apiError(true);
 }
 
 // This function is called when there is an error while loading data from the Wikipedia API
 function wikiLoadError(){
-  self.error_message("Error: unable to load wikipedia info");
+  self.errorMessage("Error: unable to load wikipedia info");
   self.apiError(true);
 }
 
