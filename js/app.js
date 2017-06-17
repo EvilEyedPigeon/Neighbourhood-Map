@@ -82,8 +82,8 @@ function stopAnimation(){
 // shows the marker that corresponds with the given place
 function displayMarkersPlace(place){
   for(var i=0;i<self.markerArray().length; i++){
-    if(place.location.lat == self.markerArray[i][0].lat && place.location.lng == self.markerArray()[i][0].lng){
-      self.markerArray[i][1].setVisible(true);
+    if(place.location.lat == self.markerArray()[i][0].lat && place.location.lng == self.markerArray()[i][0].lng){
+      self.markerArray()[i][1].setVisible(true);
     }
   }
 }
@@ -134,11 +134,14 @@ var AppViewModel = function(){
             return placesData;
         } else {
             hideMarkers();
-            return ko.utils.arrayFilter(placesData, function(place){
-                if(place.name.toLowerCase().indexOf(query) >= 0){
-                    return place;
+            var filteredPlaces = [];
+            for (var i=0; i<placesData.length; i++){
+                if (placesData[i].name.toLowerCase().indexOf(query) >= 0){
+                    displayMarkersPlace(placesData[i]);
+                    filteredPlaces.push(placesData[i]);
                 }
-            });
+            }
+            return filteredPlaces;
         }
 
     });
